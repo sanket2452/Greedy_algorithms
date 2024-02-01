@@ -1,0 +1,26 @@
+class Solution {
+public:
+    vector<vector<int>> divideArray(vector<int>& nums, int k) {
+        vector<vector<int>> ans;
+        int n=nums.size();
+        sort(nums.begin(), nums.end());
+        int i=0;
+        while(i<n){
+            int a=nums[i++];
+            int b=nums[i++];
+            int c=nums[i++];
+            if(abs(a-b)>k || abs(b-c)>k || abs(a-c)>k) return ans;
+        }
+        
+        int j=0;
+        while(j<n){
+            int t=3;
+            vector<int> s;
+            while(t--){
+                s.push_back(nums[j++]);
+            }
+            ans.push_back(s);
+        }
+        return ans;
+    }
+};
